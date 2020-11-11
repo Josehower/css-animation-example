@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #777777;
+}
+
+#frame {
+  border: solid white 5px;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: calc(50vw - 50px);
+  top: calc(50vh - 5px);
+  transition: all 0.3s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#frame:hover {
+  border: solid pink 5px;
+  cursor: pointer;
+}
+
+.rotar-boton {
+  display: block;
+  margin: 10px auto;
+}
+.line {
+  background-color: white;
+  width: 100px;
+  height: 10px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.line::after {
+  content: '';
+  background-color: white;
+  width: 100px;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: -25px;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(0deg) translate(0px);
+}
+
+.line::before {
+  content: '';
+  background-color: white;
+  width: 100px;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(0deg) translate(0px);
+}
+
+.open {
+  background-color: transparent;
+  transform: translatex(-100px);
+}
+
+.open::before {
+  transform: translate(100px, -25px) rotate(-45deg);
+}
+
+.open::after {
+  transform: translate(100px, 25px) rotate(45deg);
+}
